@@ -9,6 +9,7 @@ gem 'puma', '~> 4.1'
 
 # gems instaled
 gem 'active_model_serializers', '~> 0.10.10'
+gem 'devise', '~> 4.7', '>= 4.7.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
