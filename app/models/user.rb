@@ -22,8 +22,17 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates_presence_of :email
+  validates_uniqueness_of :email, case_sensitive: false
+  validates_format_of :email, with: /@/
+
+  before_save :downcase_email
+
+
+  def downcase_email
+    self.email = self.email.delete(' ').downcase
+  end
 end

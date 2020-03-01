@@ -2,7 +2,10 @@
 
 class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
   before_action :ensure_params_exist, only: :create
-  # sign up
+
+  respond_to :json
+
+  # POST /api/v1/sign_up
   def create
     user = User.new user_params
     if user.save
@@ -22,11 +25,11 @@ class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:sign_up).permit(:email, :password, :password_confirmation)
   end
 
   def ensure_params_exist
-    return if params[:user].present?
+    return if params[:sign_up].present?
     render json: {
         messages: "Missing Params",
         is_success: false,

@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+puts '== Installing Seeds =='
+# add concerts
+puts '***** Creating Concerts'
+Concert.create(name: 'Lolapalooza', band: 'U2', city: 'Amsterdan')
+Concert.create(name: 'Lolapalooza', band: 'Armin Van BUuren', city: 'Berlin')
+Concert.create(name: 'Rock al parque', band: 'Sistema Solar', city: 'Bogota')
+Concert.create(name: 'Rock al parque', band: 'Cultura Profetica', city: 'Bogota')
+Concert.create(name: 'Coachela', band: 'Metallica', city: 'Paris')
+Concert.create(name: 'Coachela', band: 'AC/DC', city: 'Madrid')

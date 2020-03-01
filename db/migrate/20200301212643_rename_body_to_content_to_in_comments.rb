@@ -1,0 +1,11 @@
+class RenameBodyToContentToInComments < ActiveRecord::Migration[6.0]
+  def change
+    def up
+      rename_column :comments, :body, :content
+    end
+  
+    def down
+      rename_column :comments, :content, :body
+    end
+  end
+end
