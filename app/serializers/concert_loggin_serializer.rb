@@ -9,9 +9,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Concert < ApplicationRecord
-  has_many :comments, dependent: :destroy
-  validates :name, presence: true , length: {minimum:5}
-  validates :band, presence: true
-  validates :city, presence: true
+class ConcertLogginSerializer < ActiveModel::Serializer
+  attributes :id, :name, :band, :city
+
+  has_many :comments
 end
